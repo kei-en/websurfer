@@ -1,14 +1,74 @@
 "use client";
-
-import Checkbox from "./ui/inputOption";
+import { useCallback, useState } from "react";
+import { InputOption } from "./ui/inputOption";
 import { MdKitesurfing } from "react-icons/md";
-import useCategories from "@/hooks/useCategories";
 
 export default function Categories({ categories }: { categories: Array<any> }) {
-  const { allChecked, slug, showCategories, un_checkAll, getRandomSite } =
-    useCategories(categories);
+  const [checked, setChecked] = useState<boolean>(true);
+  const [options, setOptions] = useState(0);
+  const [slug, setSlug] = useState<string>("");
+  const [sites, setSites] = useState<string[]>([]);
+  const [sitesCpy, setSitesCpy] = useState<string[]>([]);
+  const [showCategories, setShowCategories] = useState<boolean>(true);
 
-  console.log(slug);
+  const handleCheckboxSelect = (checked?: boolean) => {
+    let values: string[] = [];
+
+    if (checked !== undefined) {
+      const allCboxes = document.querySelectorAll('input[name="category"]');
+      allCboxes.forEach((cbox) => {
+        (cbox as HTMLInputElement).checked = checked;
+        values.push((cbox as HTMLInputElement).value);
+      });
+      setOptions(0);
+    } else {
+      const cboxes = document.querySelectorAll(
+        'input[name="category"]:checked'
+      );
+      cboxes.forEach((cbox) => {
+        values.push((cbox as HTMLInputElement).value);
+      });
+      console.log(cboxes);
+      setOptions(cboxes.length);
+    }
+
+    return values;
+  };
+
+  // Check and uncheck all checkboxes
+  const un_checkAll = () => {
+    handleCheckboxSelect(checked);
+    setChecked(!checked);
+  };
+
+  const getRandomSite = useCallback(() => {
+    let values =
+      options !== undefined
+        ? handleCheckboxSelect()
+        : handleCheckboxSelect(true);
+
+    let newSites: string[] = [];
+    values.forEach((value) => {
+      const category = categories.find((item) => item.id === value);
+      category?.sites.forEach((site) => {
+        newSites.push(site.slug);
+      });
+    });
+
+    setSites(newSites);
+    setSitesCpy([...newSites]);
+
+    if (newSites.length > 0) {
+      const randomIndex = Math.floor(Math.random() * newSites.length);
+      const selectedItem = newSites[randomIndex];
+
+      newSites.splice(randomIndex, 1);
+      setSitesCpy(newSites);
+
+      setSlug(selectedItem);
+      setShowCategories(false);
+    }
+  }, [categories, options]);
 
   return (
     <>
@@ -35,7 +95,7 @@ export default function Categories({ categories }: { categories: Array<any> }) {
             </h3>
             <div className="grid md:grid-cols-2 auto-cols-auto gap-12">
               {categories.map((category) => (
-                <Checkbox
+                <InputOption
                   key={category.id}
                   id={category.id}
                   type="checkbox"
