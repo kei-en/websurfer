@@ -50,7 +50,7 @@ export default function Categories({ categories }: { categories: Array<any> }) {
     let newSites: string[] = [];
     values.forEach((value) => {
       const category = categories.find((item) => item.id === value);
-      category?.sites.forEach((site) => {
+      category?.sites.forEach((site: { slug: string }) => {
         newSites.push(site.slug);
       });
     });
