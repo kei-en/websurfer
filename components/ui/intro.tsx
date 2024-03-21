@@ -4,35 +4,42 @@ import { motion } from "framer-motion";
 import { cn } from "@/utils/cn";
 import Link from "next/link";
 import { MdKitesurfing } from "react-icons/md";
+import { Button } from "./movingBorder";
+import { useRouter } from "next/navigation";
 
 export function IntroHeader() {
+  const router = useRouter();
+
   return (
     <LampContainer>
       <motion.h1
-        initial={{ opacity: 0.5, y: 100 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0.5, y: 200 }}
+        whileInView={{ opacity: 1, y: 25 }}
         transition={{
           delay: 0.3,
           duration: 0.8,
           ease: "easeInOut",
         }}
-        className="mt-8 bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl">
+        className="mt-8 bg-gradient-to-br from-slate-200 to-slate-400 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl">
         Discover the most <br /> interesting, fun and <br /> weird websites on
         the <br /> internet
       </motion.h1>
       <motion.div
-        initial={{ opacity: 0.1, y: 0 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0.1, y: 100 }}
+        whileInView={{ opacity: 1, y: 100 }}
         transition={{
           delay: 0.5,
           duration: 1,
           ease: "easeInOut",
         }}
-        className="inline-flex items-center text-white mt-24 p-4 rounded-lg bg-[#0E96C1] hover:bg-[#097191] cursor-pointer">
-        <MdKitesurfing className="text-2xl mr-2" />
-        <Link href="/explore">
+        className="inline-flex items-center cursor-pointer">
+        <Button
+          borderRadius="1.75rem"
+          className="bg-white dark:bg-slate-700 text-black dark:text-white border-neutral-200 dark:border-slate-900"
+          onClick={() => router.push("/explore")}>
+          <MdKitesurfing className="text-2xl mr-2" />
           <span className="text-xl font-medium">Start Surfing</span>
-        </Link>
+        </Button>
       </motion.div>
     </LampContainer>
   );

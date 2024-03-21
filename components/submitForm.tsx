@@ -3,7 +3,7 @@ import React from "react";
 import { Label } from "./ui/label";
 import { Input } from "./ui/input";
 import { cn } from "@/utils/cn";
-import { InputOption } from "./ui/inputOption";
+import { InputOption } from "./ui/inputoption";
 
 export function SubmitForm({ categories }: { categories: Array<any> }) {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
