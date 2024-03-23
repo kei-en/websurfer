@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Image from "next/image";
+import { Navbar } from "@/components/navbar";
+import { NextButtonProvider } from "@/lib/store";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,22 +19,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <nav className="w-full sticky top-0 flex justify-between px-6 py-3 bg-[#CEE3EC] z-20">
-          <div className="inline-flex items-center justify-evenly w-[25%]">
-            <Image
-              src="/sblogo.png"
-              alt=""
-              width={56}
-              height={82}
-              className="w-8 h-auto"
-            />
-            <h2 className="text-2xl pt-3">
-              Surf<del>Bored</del>
-            </h2>
+        <NextButtonProvider>
+          {/* Navbar */}
+          <div className="relative w-full flex items-center justify-center">
+            <Navbar className="top-2" />
           </div>
-          <button>Menu</button>
-        </nav>
-        <main className="w-full h-full min-h-[90vh]">{children}</main>
+          <main className="w-full h-full">{children}</main>
+        </NextButtonProvider>
       </body>
     </html>
   );

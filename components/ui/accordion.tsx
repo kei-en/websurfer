@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 type AccordionpProps = {
   title: string;
   description: string;
-  id: string;
+  id: number;
   active?: boolean;
 };
 
