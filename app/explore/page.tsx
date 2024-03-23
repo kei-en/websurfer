@@ -1,12 +1,18 @@
 import { categories } from "@/data";
-import Categories from "@/components/categories";
+import { CategoriesForm } from "./CategoriesForm";
+import { ShowSites } from "./ShowSites";
+import { cookies } from "next/headers";
 
 export default function Explore() {
+  const cookieStore = cookies();
+  const cats = cookieStore.get("categories");
+  const ids = categories.map((id) => {
+    return id;
+  });
+
   return (
-    <>
-      <div className="w-full">
-        <Categories categories={categories} />
-      </div>
-    </>
+    <div className="w-full min-h-screen">
+      {cats ? <ShowSites cats={cats} ids={ids} /> : <CategoriesForm />}
+    </div>
   );
 }
