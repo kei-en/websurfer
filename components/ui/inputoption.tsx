@@ -9,7 +9,7 @@ export interface InputOptionProps
 }
 
 const InputOption = React.forwardRef<HTMLInputElement, InputOptionProps>(
-  ({ className, type, title, description, ...props }, ref) => {
+  ({ className, type, title, name, description, ...props }, ref) => {
     const radius = 100; // change this to increase the rdaius of the hover effect
     const [visible, setVisible] = React.useState(false);
 
@@ -36,7 +36,7 @@ const InputOption = React.forwardRef<HTMLInputElement, InputOptionProps>(
                 : "rounded-full"
             } border border-gray-900 dark:border-gray-50 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:bg-cyan-950 checked:bg-gray-50 dark:checked:bg-gray-900 checked:border-gray-900 dark:checked:border-gray-50 checked:before:bg-gray-900 dark:checked:before:bg-gray-50 before:opacity-0 before:transition-opacity hover:before:opacity-10`}
             id={props.id}
-            name="category"
+            name={name}
             value={props.id}
             ref={ref}
           />

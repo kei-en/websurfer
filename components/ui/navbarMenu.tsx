@@ -5,6 +5,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { RiMenu4Fill } from "react-icons/ri";
 import { FaXmark } from "react-icons/fa6";
+import { useNextSiteButtonContext } from "@/lib/store";
+import { useRouter } from "next/navigation";
 
 const transition = {
   type: "spring",
@@ -139,13 +141,31 @@ export const ProductItem = ({
   );
 };
 
-export const NextSiteButton = ({ children, ...rest }: any) => {
+export const NextSiteButton = ({ children }: any) => {
+  const router = useRouter();
+
+  const switchSite = () => {
+    router.refresh();
+  };
+
   return (
-    <Link
-      {...rest}
+    <button
+      onClick={switchSite}
       className="w-fit bg-cyan-700 mt-5 -mb-1 p-2 px-4 shadow-sm shadow-gray-100 text-center rounded-3xl text-neutral-700 dark:text-neutral-200 hover:opacity-[0.9]">
       {children}
-    </Link>
+    </button>
+  );
+};
+
+export const InfoButton = ({ children }: any) => {
+  const { setInfoStatus } = useNextSiteButtonContext();
+
+  return (
+    <button
+      onClick={() => setInfoStatus(true)}
+      className="w-fit mt-4 p-2 text-center text-neutral-700 dark:text-neutral-200 hover:opacity-[0.9]">
+      {children}
+    </button>
   );
 };
 
