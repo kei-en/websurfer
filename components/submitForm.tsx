@@ -4,27 +4,45 @@ import { Label } from "./ui/label";
 import { Input } from "./ui/input";
 import { cn } from "@/utils/cn";
 import { InputOption } from "./ui/inputoption";
+import { createSubmission } from "@/app/submit/actions";
 
-export function SubmitForm({ categories }: { categories: Array<any> }) {
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log("Form submitted");
-  };
+type CategoriesField = {
+  id: string;
+  color: string;
+  title: string;
+  description: string;
+};
 
+export function SubmitForm({ categories }: { categories: CategoriesField[] }) {
   return (
     <div className="md:max-w-3xl lg:max-w-4xl w-[94%] md:w-full mx-auto mb-2 md:mb-4 rounded-t-none rounded-md p-4 pt-2 px-10 md:p-8 md:pt-4 md:px-16 shadow-input bg-stone-950 opacity-95">
-      <form className="my-8" onSubmit={handleSubmit}>
+      <form className="my-8" action={createSubmission}>
         <LabelInputContainer className="mb-4">
           <Label htmlFor="name">Name</Label>
-          <Input id="name" placeholder="projectmayhem" type="text" />
+          <Input
+            id="name"
+            placeholder="projectmayhem"
+            type="text"
+            name="name"
+          />
         </LabelInputContainer>
         <LabelInputContainer className="mb-4">
           <Label htmlFor="email">Email Address</Label>
-          <Input id="email" placeholder="projectmayhem@fc.com" type="email" />
+          <Input
+            id="email"
+            placeholder="projectmayhem@fc.com"
+            type="email"
+            name="email"
+          />
         </LabelInputContainer>
         <LabelInputContainer className="mb-4">
           <Label htmlFor="url">Enter the URL</Label>
-          <Input id="url" placeholder="https://projectmayhem.com" type="url" />
+          <Input
+            id="url"
+            placeholder="https://projectmayhem.com"
+            type="url"
+            name="url"
+          />
         </LabelInputContainer>
         <LabelInputContainer className="my-4">
           <h3 className="mb-4 font-semibold text-sm text-white">
@@ -38,6 +56,7 @@ export function SubmitForm({ categories }: { categories: Array<any> }) {
                     key={category.id}
                     id={category.id}
                     type="radio"
+                    name="category"
                     color={category.color}
                     title={category.title}
                     description={category.description}
@@ -53,6 +72,7 @@ export function SubmitForm({ categories }: { categories: Array<any> }) {
           Submit site &rarr;
           <BottomGradient />
         </button>
+        s
       </form>
     </div>
   );
