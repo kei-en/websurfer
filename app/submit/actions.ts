@@ -1,6 +1,7 @@
 "use server"
 import {z} from "zod";
 import transporter from "@/lib/nodemailer";
+import { SentMessageInfo } from "nodemailer";
 
 const FormSchema = z.object({
     name: z.string(),
@@ -49,9 +50,9 @@ export async function createSubmission(formData: FormData) {
     }
 
     return new Promise((resolve, reject) => {
-        transporter.sendMail(mailOptions, (error: string, info: { accepted: string; }) => {
-            if (error) {
-                console.error(error)
+        transporter.sendMail(mailOptions, (err: Error | null, info: SentMessageInfo) => {
+            if (err) {
+                console.error(err)
                 return reject("Unable to send email");
             }
 
