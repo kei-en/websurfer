@@ -80,7 +80,7 @@ export default function Categories({ categories }: { categories: Array<any> }) {
             </h2>
             <p>
               Click the Next Site button and get a random website. It&apos;s
-              that easy. If you want, you can select categories to explore
+              that easy. If you want, you can select categories to surf through
               below. If you don&apos;t select any categories, all will be used
               to find websites for you. Categories can be changed later on from
               the menu.

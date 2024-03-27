@@ -3,7 +3,7 @@ import { CategoriesForm } from "./CategoriesForm";
 import { ShowSites } from "./ShowSites";
 import { cookies } from "next/headers";
 
-export default function Explore() {
+export default function Surf() {
   const cookieStore = cookies();
   const cats = cookieStore.get("categories");
   const ids = categories.map((id) => {

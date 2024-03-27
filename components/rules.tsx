@@ -57,8 +57,8 @@ export default function Rules() {
         <FaInfo className="w-6 h-6" />
         <p>
           Before submitting a lot of sites to SurfBored,&nbsp;
-          <Link className="font-semibold underline" href="/explore">
-            explore the existing Websites
+          <Link className="font-semibold underline" href="/surf">
+            surf through the existing Websites
           </Link>{" "}
           for a while to get an impression what is already there.
         </p>

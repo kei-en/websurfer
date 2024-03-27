@@ -36,7 +36,7 @@ export function IntroHeader() {
         <Button
           borderRadius="1.75rem"
           className="bg-white dark:bg-slate-700 text-black dark:text-white border-neutral-200 dark:border-slate-900"
-          onClick={() => router.push("/explore")}>
+          onClick={() => router.push("/surf")}>
           <MdKitesurfing className="text-2xl mr-2" />
           <span className="text-xl font-medium">Start Surfing</span>
         </Button>

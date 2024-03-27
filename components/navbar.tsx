@@ -35,7 +35,7 @@ export function Navbar({ className }: { className?: string }) {
         <MenuItem setActive={setActive} active={active} item="Menu">
           <div className="flex flex-col space-y-4 text-sm">
             <SubLink href="/">Homepage</SubLink>
-            <SubLink href="/explore/update-categories">
+            <SubLink href="/surf/update-categories">
               Change your categories
             </SubLink>
             <SubLink href="/submit">Submit a website</SubLink>
