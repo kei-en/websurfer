@@ -6,20 +6,6 @@ import { useEffect, useState } from "react";
 import { FaXmark, FaShare } from "react-icons/fa6";
 import { TiWarning } from "react-icons/ti";
 
-type SelectedCategory = {
-  title: string;
-  description: string;
-  color: string;
-  sites: CurrentSite[];
-};
-
-type CurrentSite = {
-  title: string;
-  description: string;
-  slug: string;
-  submitter: string;
-};
-
 export function ShowSites({
   cats,
   ids,
@@ -27,17 +13,16 @@ export function ShowSites({
   cats: RequestCookie;
   ids: object[];
 }) {
-  const [currentCategory, setCurrentCategory] = useState<
-    SelectedCategory[] | {}
-  >({});
-  const [currentSite, setCurrentSite] = useState<CurrentSite | {}>({});
+  const [currentCategory, setCurrentCategory] = useState<any>([]);
+  const [currentSite, setCurrentSite] = useState<any>([]);
 
   const { infoStatus, setInfoStatus } = useNextSiteButtonContext();
 
   useEffect(() => {
-    const { selectedCategory, selectedItem: site } = loadSite(cats, ids);
+    // @ts-ignore
+    const { selectedCategory, selectedItem } = loadSite(cats, ids);
     setCurrentCategory(selectedCategory);
-    setCurrentSite(site);
+    setCurrentSite(selectedItem);
   }, [cats, ids]);
 
   return (
@@ -101,12 +86,16 @@ export function ShowSites({
   );
 }
 
-export function loadSite(cats: RequestCookie, ids: object[]) {
+export function loadSite(
+  cats: RequestCookie,
+  ids: { category: { site: object[] } }
+) {
   let newSites: object[] = [];
   let selectedCategory: object = [];
 
   const cids = JSON.parse(cats.value);
   cids.forEach((id: string) => {
+    // @ts-ignore
     for (let category of ids) {
       if (category.id === id) {
         category.sites.forEach((site: { slug: string }) => {
