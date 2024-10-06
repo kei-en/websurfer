@@ -97,10 +97,10 @@ export const LogoItem = ({
     <Link href={href} className="flex space-x-2 items-center">
       <Image
         src={src}
-        width={36}
-        height={16}
+        width={61}
+        height={85}
         alt={title}
-        className="w-12 h-12 bg-[#CEE3EC] rounded-full p-1 object-contain"
+        className="w-12 h-12 rounded-full p-1 object-contain"
       />
       <h4 className="text-2xl font-bold pt-2 text-black dark:text-white hidden md:block text-end">
         {title}
@@ -151,7 +151,7 @@ export const NextSiteButton = ({ children }: any) => {
   return (
     <button
       onClick={switchSite}
-      className="w-fit bg-cyan-700 mt-5 -mb-1 p-2 px-4 shadow-sm shadow-gray-100 text-center rounded-3xl text-neutral-700 dark:text-neutral-200 hover:opacity-[0.9]">
+      className="w-fit bg-sky-800 hover:bg-sky-600 mt-5 -mb-1 p-2 px-4 shadow-sm shadow-gray-100 text-center rounded-3xl text-neutral-700 dark:text-neutral-200">
       {children}
     </button>
   );
