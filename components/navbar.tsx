@@ -19,11 +19,11 @@ export function Navbar({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "fixed top-10 inset-x-0 max-w-2xl mx-auto z-50",
+        "fixed top-10 inset-x-0 max-w-2xl mx-auto z-40",
         className
       )}>
       <Menu setActive={setActive as (item: string | null) => void}>
-        <LogoItem title="SurfBored" href="/" src="/sblogo.png" />
+        <LogoItem title="Websurfer" href="/" src="/ws-logo.png" />
         {visible && (
           <div>
             <NextSiteButton>Next Site</NextSiteButton>
@@ -34,12 +34,12 @@ export function Navbar({ className }: { className?: string }) {
         )}
         <MenuItem setActive={setActive} active={active} item="Menu">
           <div className="flex flex-col space-y-4 text-sm">
-            <SubLink href="/">Homepage</SubLink>
+            <SubLink href="/about">About</SubLink>
             <SubLink href="/surf/update-categories">
               Change your categories
             </SubLink>
             <SubLink href="/submit">Submit a website</SubLink>
-            <SubLink href="/faq">FAQ & Contact</SubLink>
+            <SubLink href="/contact">FAQ & Contact</SubLink>
           </div>
         </MenuItem>
       </Menu>
