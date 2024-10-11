@@ -2,12 +2,11 @@ import { MdKitesurfing } from "react-icons/md";
 import { InputOption } from "@/components/ui/inputoption";
 import { categories } from "@/data";
 import { cookies } from "next/headers";
-import { ToggleAllButton } from "./ToggleAll";
+import { ToggleAllButton } from "../../components/ToggleAll";
 
 export async function CategoriesForm() {
   const getCategories = async (formData: FormData) => {
     "use server";
-
     let body = formData.getAll("category");
 
     if (body.length < 1) {
@@ -29,9 +28,7 @@ export async function CategoriesForm() {
   return (
     <section className="md:w-[95%] lg:w-5/6 h-5/6 mx-auto mt-8 mb-0 md:my-8 bg-cyan-950 text-white rounded-md rounded-b-none md:rounded-lg p-4">
       <div className="my-8 lg:m-8 w-fit">
-        <h2 className="text-2xl font-semibold py-4">
-          Welcome to Surf<del>Bored</del>!
-        </h2>
+        <h2 className="text-2xl font-semibold py-4">Welcome to Websurfer!</h2>
         <p>
           Click the Next Site button and get a random website. It&apos;s that
           easy. If you want, you can select categories to surf below. If you
@@ -54,6 +51,7 @@ export async function CategoriesForm() {
                 title={category.title}
                 name="category"
                 description={category.description}
+                required={false}
               />
             ))}
           </div>
