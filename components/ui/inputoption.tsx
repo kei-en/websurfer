@@ -9,7 +9,7 @@ export interface InputOptionProps
 }
 
 const InputOption = React.forwardRef<HTMLInputElement, InputOptionProps>(
-  ({ className, type, title, name, description, ...props }, ref) => {
+  ({ className, type, title, name, description, required, ...props }, ref) => {
     const radius = 100; // change this to increase the rdaius of the hover effect
     const [visible, setVisible] = React.useState(false);
 
@@ -39,6 +39,7 @@ const InputOption = React.forwardRef<HTMLInputElement, InputOptionProps>(
             name={name}
             value={props.id}
             ref={ref}
+            required={required}
           />
           <span className="absolute text-white transition-opacity opacity-0 pointer-events-none top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 peer-checked:opacity-100">
             <svg
