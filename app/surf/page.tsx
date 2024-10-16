@@ -11,7 +11,7 @@ export default function Surf() {
   });
 
   return (
-    <div className="w-full min-h-screen">
+    <div className="w-full min-h-screen bg-slate-50">
       {cats ? <ShowSites cats={cats} ids={ids} /> : <CategoriesForm />}
     </div>
   );
