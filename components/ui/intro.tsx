@@ -2,7 +2,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/utils/cn";
-import Link from "next/link";
 import { MdKitesurfing } from "react-icons/md";
 import { Button } from "./movingBorder";
 import { useRouter } from "next/navigation";
@@ -14,33 +13,37 @@ export function IntroHeader() {
     <LampContainer>
       <motion.h1
         initial={{ opacity: 0.5, y: 200 }}
-        whileInView={{ opacity: 1, y: 25 }}
+        whileInView={{ opacity: 1, y: 50 }}
         transition={{
           delay: 0.3,
           duration: 0.8,
           ease: "easeInOut",
         }}
-        className="min-[766px]:mt-24 bg-gradient-to-br from-slate-200 to-slate-400 py-4 bg-clip-text text-end text-4xl font-medium tracking-tight text-transparent md:text-7xl">
+        className="mt-32 bg-gradient-to-br from-slate-200 to-slate-400 md:pt-4 pb-4 bg-clip-text text-end text-4xl font-medium tracking-tight text-transparent md:text-7xl">
         Discover the most <br /> interesting, fun and <br /> weird websites on
         the <br /> internet
       </motion.h1>
-      <motion.div
-        initial={{ opacity: 0.1, y: 100 }}
-        whileInView={{ opacity: 1, y: 100 }}
+      <motion.h4
+        initial={{ opacity: 0.5, y: 200 }}
+        whileInView={{ opacity: 1, y: 50 }}
         transition={{
-          delay: 0.5,
-          duration: 1,
+          delay: 0.4,
+          duration: 0.9,
           ease: "easeInOut",
         }}
-        className="inline-flex items-center cursor-pointer">
-        <Button
-          borderRadius="1.75rem"
-          className="bg-white dark:bg-slate-700 text-black dark:text-white border-neutral-200 dark:border-slate-900"
-          onClick={() => router.push("/surf")}>
-          <MdKitesurfing className="text-2xl mr-2" />
-          <span className="text-xl font-medium">Start Surfing</span>
-        </Button>
-      </motion.div>
+        className="text-slate-300 text-center text-sm from-slate-200 to-slate-400 pb-12 md:py-20 mx-4 md:mx-12 lg:mx-40 bg-clip-text font-medium tracking-tight">
+        Websurfer is a curated collection of interesting, quirky, and
+        astonishing websites. It features exceptional sites that are perfect for
+        killing time or learning something new. Explore the internet, one random
+        website at a time, all carefully reviewed and categorized.
+      </motion.h4>
+      <Button
+        borderRadius="1.75rem"
+        className="bg-sky-800 text-white border-slate-900"
+        onClick={() => router.push("/surf")}>
+        <MdKitesurfing className="text-2xl mr-2" />
+        <span className="text-xl font-medium">Start Surfing</span>
+      </Button>
     </LampContainer>
   );
 }
@@ -55,13 +58,13 @@ export const LampContainer = ({
   return (
     <div
       className={cn(
-        "relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-slate-950 w-full rounded-md z-0",
+        "relative flex h-full pb-16 md:pb-20 lg:pb-36 flex-col items-center justify-center overflow-hidden bg-slate-950 w-full z-0",
         className
       )}>
-      <div className="relative flex w-full flex-1 scale-y-125 items-center justify-center isolate z-0 ">
+      <div className="relative flex w-full flex-1 scale-y-125 translate-y-[calc(100vh_-_43rem)] md:translate-y-48 items-center justify-center isolate z-0 ">
         <motion.div
-          initial={{ opacity: 0.5, width: "15rem" }}
-          whileInView={{ opacity: 1, width: "" }}
+          initial={{ opacity: 0.5, width: "10rem" }}
+          whileInView={{ opacity: 1, width: "15rem" }}
           transition={{
             delay: 0.3,
             duration: 0.8,
@@ -75,8 +78,8 @@ export const LampContainer = ({
           <div className="absolute  w-40 h-[100%] left-0 bg-slate-950  bottom-0 z-20 [mask-image:linear-gradient(to_right,white,transparent)]" />
         </motion.div>
         <motion.div
-          initial={{ opacity: 0.5, width: "15rem" }}
-          whileInView={{ opacity: 1, width: "" }}
+          initial={{ opacity: 0.5, width: "10rem" }}
+          whileInView={{ opacity: 1, width: "15rem" }}
           transition={{
             delay: 0.3,
             duration: 0.8,
@@ -102,8 +105,8 @@ export const LampContainer = ({
           }}
           className="absolute inset-auto z-30 h-36 w-64 -translate-y-[6rem] rounded-full bg-cyan-400 blur-2xl"></motion.div>
         <motion.div
-          initial={{ width: "15rem" }}
-          whileInView={{ width: "" }}
+          initial={{ width: "0rem" }}
+          whileInView={{ width: "15rem" }}
           transition={{
             delay: 0.3,
             duration: 0.8,
@@ -114,7 +117,7 @@ export const LampContainer = ({
         <div className="absolute inset-auto z-40 h-44 w-full -translate-y-[12.5rem] bg-slate-950 "></div>
       </div>
 
-      <div className="relative z-50 flex -translate-y-[calc(100vh_-_27rem)] md:-translate-y-80 flex-col items-center px-5">
+      <div className="relative z-50 flex flex-col items-center px-5">
         {children}
       </div>
     </div>
