@@ -1,12 +1,14 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { cn } from "@/utils/cn";
 
 type AccordionpProps = {
   title: string;
   description: string;
   id: number;
   active?: boolean;
+  className?: string;
 };
 
 export default function Accordion({
@@ -14,6 +16,7 @@ export default function Accordion({
   description,
   id,
   active = false,
+  className,
 }: AccordionpProps) {
   const [accordionOpen, setAccordionOpen] = useState<boolean>(false);
 
@@ -22,7 +25,7 @@ export default function Accordion({
   }, [active]);
 
   return (
-    <div className="py-2">
+    <div className={cn(`py-2`, className)}>
       <h2>
         <button
           className="flex items-center justify-between w-full text-left font-semibold py-2 pl-2"
@@ -32,7 +35,7 @@ export default function Accordion({
           }}
           aria-expanded={accordionOpen}
           aria-controls={`accordion-text-${id}`}>
-          <span className="text-sm">{title}</span>
+          <span className="text-base">{title}</span>
           <svg
             data-accordion-icon
             className={`w-3 h-3 shrink-0 transform origin-center transition duration-200 ease-out ${
@@ -56,7 +59,7 @@ export default function Accordion({
         id={`accordion-text-${id}`}
         role="region"
         aria-labelledby={`accordion-title-${id}`}
-        className={`grid text-xs text-gray-200 overflow-hidden transition-all duration-300 ease-in-out ${
+        className={`grid text-sm text-gray-200 overflow-hidden transition-all duration-300 ease-in-out mx-2 ${
           accordionOpen
             ? "grid-rows-[1fr] opacity-100"
             : "grid-rows-[0fr] opacity-0"
