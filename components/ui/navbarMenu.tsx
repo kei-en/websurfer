@@ -53,7 +53,7 @@ export const MenuItem = ({
               <motion.div
                 transition={transition}
                 layoutId="active" // layoutId ensures smooth animation
-                className="bg-white dark:bg-black backdrop-blur-sm rounded-2xl overflow-hidden border border-black/[0.2] dark:border-white/[0.2] shadow-xl">
+                className="bg-black dark:bg-black backdrop-blur-sm rounded-2xl overflow-hidden border border-black/[0.2] dark:border-white/[0.2] shadow-xl">
                 <motion.div
                   layout // layout ensures smooth animation
                   className="w-max h-full p-4">
@@ -78,7 +78,7 @@ export const Menu = ({
   return (
     <nav
       onMouseLeave={() => setActive(null)} // resets the state
-      className="relative rounded-full boder border-transparent dark:bg-black dark:border-white/[0.2] bg-white shadow-input flex justify-between pr-8 mx-4">
+      className="relative rounded-full boder border-transparent dark:bg-black dark:border-white/[0.2] bg-black shadow-input flex justify-between pr-8 mx-4">
       {children}
     </nav>
   );
@@ -102,7 +102,7 @@ export const LogoItem = ({
         alt={title}
         className="w-12 h-12 rounded-full p-1 object-contain"
       />
-      <h4 className="text-2xl font-bold pt-2 text-black dark:text-white hidden md:block text-end">
+      <h4 className="text-2xl font-bold pt-2 text-white dark:text-white hidden md:block text-end">
         {title}
       </h4>
     </Link>
@@ -130,10 +130,10 @@ export const ProductItem = ({
         className="flex-shrink-0 rounded-md shadow-2xl"
       />
       <div>
-        <h4 className="text-xl font-bold mb-1 text-black dark:text-white">
+        <h4 className="text-xl font-bold mb-1 text-white dark:text-white">
           {title}
         </h4>
-        <p className="text-neutral-700 text-sm max-w-[10rem] dark:text-neutral-300">
+        <p className="text-neutral-300 text-sm max-w-[10rem] dark:text-neutral-300">
           {description}
         </p>
       </div>
@@ -151,7 +151,7 @@ export const NextSiteButton = ({ children }: any) => {
   return (
     <button
       onClick={switchSite}
-      className="w-fit bg-sky-800 hover:bg-sky-600 mt-5 -mb-1 p-2 px-4 shadow-sm shadow-gray-100 text-center rounded-3xl text-neutral-700 dark:text-neutral-200">
+      className="w-fit bg-sky-800 hover:bg-sky-600 mt-5 -mb-1 p-2 px-4 shadow-sm shadow-gray-100 text-center rounded-3xl text-neutral-200 dark:text-neutral-200">
       {children}
     </button>
   );
@@ -163,7 +163,7 @@ export const InfoButton = ({ children }: any) => {
   return (
     <button
       onClick={() => setInfoStatus(true)}
-      className="w-fit mt-4 p-2 text-center text-neutral-700 dark:text-neutral-200 hover:opacity-[0.9]">
+      className="w-fit mt-4 p-2 text-center text-neutral-200 dark:text-neutral-200 hover:text-sky-400">
       {children}
     </button>
   );
@@ -173,7 +173,7 @@ export const SubLink = ({ children, ...rest }: any) => {
   return (
     <Link
       {...rest}
-      className="text-neutral-700 dark:text-neutral-200 hover:opacity-[0.9]">
+      className="text-neutral-200 dark:text-neutral-200 hover:text-sky-400">
       {children}
     </Link>
   );
