@@ -43,9 +43,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
           height={85}
           className="w-10 h-auto"
         />
-        <h1 className="text-2xl md:text-4xl my-4 text-white max-w-4xl">
-          Websurfer
-        </h1>
+        <h1 className="text-2xl md:text-4xl my-4 max-w-4xl">Websurfer</h1>
       </div>
 
       <div ref={ref} className="relative max-w-7xl mx-auto pb-20">
