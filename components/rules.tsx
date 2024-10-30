@@ -7,7 +7,7 @@ import Link from "next/link";
 
 export default function Rules() {
   return (
-    <section className="relative w-[98%] md:w-[95%] lg:w-5/6 h-5/6 mx-auto mt-20 mb-12 border border-slate-800 bg-slate-950 text-white rounded-md md:rounded-lg p-4">
+    <section className="relative w-[98%] md:w-[95%] lg:w-5/6 h-5/6 mx-auto mt-20 mb-12 border border-slate-800 bg-slate-300 dark:bg-slate-950 rounded-md md:rounded-lg p-4">
       <div className="my-8 lg:m-8 w-fit">
         <h2 className="text-2xl font-semibold py-4">
           Submit a website to Websurfer
@@ -23,9 +23,9 @@ export default function Rules() {
       </div>
       {rules && (
         <div className="w-full grid auto-cols-auto lg:grid-cols-2 gap-8 p-4">
-          <div className="bg-green-900 bg-opacity-70 p-4 rounded-md">
+          <div className="bg-green-800 dark:bg-green-900 bg-opacity-70 p-4 rounded-md">
             <div className="inline-flex items-center justify-evenly">
-              <IoIosCheckmarkCircleOutline className="w-6 h-6 text-white bg-green-900 rounded-full" />
+              <IoIosCheckmarkCircleOutline className="w-6 h-6 text-white bg-green-800 rounded-full" />
               <h3 className="font-bold py-4 px-2">Allowed</h3>
             </div>
             {rules.allowed.map((rule, index) => (
@@ -37,7 +37,7 @@ export default function Rules() {
               />
             ))}
           </div>
-          <div className="bg-red-900 bg-opacity-70 p-4 rounded-md">
+          <div className="bg-red-700 dark:bg-red-900 bg-opacity-70 p-4 rounded-md">
             <div className="inline-flex items-center">
               <ImBlocked className="w-6 h-6 text-red-700 bg-gray-800 rounded-full" />
               <h3 className="font-bold py-4 px-2">Not Allowed</h3>
