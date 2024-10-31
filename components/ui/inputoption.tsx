@@ -34,14 +34,14 @@ const InputOption = React.forwardRef<HTMLInputElement, InputOptionProps>(
               type === "checkbox"
                 ? "rounded-sm before:rounded-md"
                 : "rounded-full"
-            } border border-gray-900 dark:border-gray-50 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:bg-cyan-950 checked:bg-gray-50 dark:checked:bg-gray-900 checked:border-gray-900 dark:checked:border-gray-50 checked:before:bg-gray-900 dark:checked:before:bg-gray-50 before:opacity-0 before:transition-opacity hover:before:opacity-10`}
+            } border border-gray-900 dark:border-gray-50 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:bg-cyan-950 checked:bg-slate-200 dark:checked:bg-gray-900 checked:border-gray-900 dark:checked:border-gray-50 checked:before:bg-gray-900 dark:checked:before:bg-gray-50 before:opacity-0 before:transition-opacity hover:before:opacity-10`}
             id={props.id}
             name={name}
             value={props.id}
             ref={ref}
             required={required}
           />
-          <span className="absolute text-white transition-opacity opacity-0 pointer-events-none top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 peer-checked:opacity-100">
+          <span className="absolute text-slate-700 dark:text-white transition-opacity opacity-0 pointer-events-none top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 peer-checked:opacity-100">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-3.5 w-3.5"
@@ -60,7 +60,7 @@ const InputOption = React.forwardRef<HTMLInputElement, InputOptionProps>(
           </span>
         </Label>
         <Label
-          className={`mt-px font-light text-white cursor-pointer select-none`}
+          className={`mt-px font-light cursor-pointer select-none`}
           htmlFor={props.id}>
           <motion.div
             style={{
@@ -81,7 +81,7 @@ const InputOption = React.forwardRef<HTMLInputElement, InputOptionProps>(
             <p className="block font-sans text-base antialiased font-medium leading-relaxed">
               {title}
             </p>
-            <p className="block font-sans text-sm antialiased font-normal leading-normal text-gray-100 opacity-90">
+            <p className="block font-sans text-sm antialiased font-normal leading-normal text-slate-800 dark:text-gray-100 opacity-90">
               {description}
             </p>
           </motion.div>
