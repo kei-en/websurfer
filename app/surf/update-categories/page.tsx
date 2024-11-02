@@ -31,7 +31,7 @@ export default function UpdateCategories() {
 
   return (
     <div className="w-full">
-      <div className="w-[95%] lg:w-5/6 h-full mx-auto mt-8 mb-0 md:my-8 bg-cyan-950 text-white rounded-md rounded-b-none md:rounded-lg p-4">
+      <div className="w-[95%] lg:w-5/6 h-full mx-auto mt-8 mb-0 md:my-8 border border-slate-700 bg-slate-300 dark:bg-slate-950 rounded-md rounded-b-none md:rounded-lg p-4">
         <div className="my-8 lg:m-8 w-fit">
           <h2 className="text-2xl font-semibold py-4">
             Select your categories
