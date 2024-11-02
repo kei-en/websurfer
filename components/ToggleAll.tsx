@@ -16,7 +16,7 @@ export function ToggleAllButton({ title }: { title: string }) {
 
   return (
     <button
-      className="m-4 mt-6 bg-cyan-800 p-2 rounded-sm text-xs font-semibold"
+      className="m-4 mt-6 text-white bg-sky-800 p-2 rounded-sm text-xs font-semibold"
       formAction={handleToggleAll}>
       {title}
     </button>
