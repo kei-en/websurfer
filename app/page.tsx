@@ -25,7 +25,7 @@ export default function Home() {
   };
 
   return (
-    <section className="bg-slate-950">
+    <section className="bg-slate-100 dark:bg-slate-950">
       <IntroHeader />
       <Footer />
     </section>
