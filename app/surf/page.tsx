@@ -11,7 +11,12 @@ export default function Surf() {
   });
 
   return (
-    <div className="w-full min-h-screen bg-slate-50">
+    <div
+      className={`w-full min-h-screen ${
+        cats
+          ? "bg-slate-50"
+          : "bg-gradient-to-b from-slate-50 to slate-100 dark:from-slate-900 dark:to-slate-950"
+      }`}>
       {cats ? <ShowSites cats={cats} ids={ids} /> : <CategoriesForm />}
     </div>
   );
