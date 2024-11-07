@@ -88,7 +88,7 @@ export default function Share() {
   );
 }
 
-export function getSites(cats: Category[]): { selectedSites: Site[] } {
+export function getSites(cats: Category[]) {
   let sites: Site[] = [];
 
   cats.forEach((cat) => {
