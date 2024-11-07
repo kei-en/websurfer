@@ -21,6 +21,18 @@ interface Category {
   sites: Site[];
 }
 
+const getSites = (cats: Category[]): { selectedSites: Site[] } => {
+  let sites: Site[] = [];
+
+  cats.forEach((cat) => {
+    cat.sites.forEach((site) => {
+      sites.push(site);
+    });
+  });
+
+  return { selectedSites: sites };
+};
+
 export default function Share() {
   const [site, setSite] = useState<Site>({
     id: "",
@@ -31,7 +43,7 @@ export default function Share() {
   });
   const [isCopied, setIsCopied] = useState(false);
 
-  const { id } = useParams();
+  const { id } = useParams<{ id: string }>();
   const { selectedSites } = getSites(categories);
 
   const pathname = usePathname();
@@ -47,7 +59,7 @@ export default function Share() {
 
   const handleCopy = async () => {
     try {
-      //Copy text to clipboard
+      // Copy text to clipboard
       await navigator.clipboard.writeText(shareUrl);
       setIsCopied(true); // Show "Copied!" effect
       // Remove "Copied!" text after 2 seconds
@@ -86,16 +98,4 @@ export default function Share() {
       <Footer />
     </div>
   );
-}
-
-export function getSites(cats: Category[]) {
-  let sites: Site[] = [];
-
-  cats.forEach((cat) => {
-    cat.sites.forEach((site) => {
-      sites.push(site);
-    });
-  });
-
-  return { selectedSites: sites };
 }
